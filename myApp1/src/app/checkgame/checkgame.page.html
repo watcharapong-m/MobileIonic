@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>checkgame</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Game Checkbox</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let member of gameList">
+
+      <ion-label item-left>{{member.name}}</ion-label>
+
+      <ion-label item-right text-right>{{ member.value }}</ion-label>
+
+      <ion-checkbox color="dark" [(ngModel)]="member.checked"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="full" shape="round"  (click)="Submit()">Submit</ion-button>
+</ion-content>

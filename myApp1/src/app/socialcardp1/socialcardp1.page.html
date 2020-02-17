@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>socialcardp1</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngFor="let item of storylist; let i = index">
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="../../assets/images/user.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h3>John Doe</h3>
+        <p>Dec 10, 2019</p>
+      </ion-label>
+    </ion-item>
+    
+    <!--  -->
+    <button calss="item item-image button button-full"><img src="{{item.storypic}}" class="img-responsive" alt="ion"></button>
+    <ion-card-header>
+      <ion-card-title>{{item.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        {{item.content}}
+    </ion-card-content>
+
+    <ion-footer>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <button ionFocus ionBlur (click)="handleLike(i)">
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>{{item.likevalue}}&nbsp;Like</div>
+          </button>
+        </ion-col>
+        <ion-col class="ion-text-center">
+          <button (click)="showFormComment(i)">
+            <ion-icon name="text"></ion-icon>
+            <div>{{item.commentlist.length}} Comments</div>
+          </button>
+        </ion-col>
+        <ion-col class="ion-text-center">
+          <button>
+            <ion-icon name="time"></ion-icon>
+            <!-- <div>11h ago</div> -->
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-footer>
+    <!--xxxx -->
+    <ion-item *ngFor="let comment of item.commentlist; let j = index">
+      <div>{{comment}}</div>
+    </ion-item>
+      <ion-item>
+        <!-- <ion-label>Disabled</ion-label> -->
+        <ion-datetime id="dynamicDisabled" display-format="MM DD YY" [(ngModel)]="myDate">
+        </ion-datetime>
+      </ion-item>
+  </ion-card>
+  
+</ion-content>

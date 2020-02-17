@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>slidelistp1</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of itemlist">
+      <ion-item>
+        <ion-label>{{item.name}}</ion-label>>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" 
+        onClick="edit(item.id)">Edit
+        <ion-icon name="create"></ion-icon>
+        </ion-item-option>
+        <ion-item-option (click)="removeItem(item.id)">Remove
+          <ion-icon name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

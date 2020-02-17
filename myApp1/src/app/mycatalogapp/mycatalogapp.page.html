@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>mycatalogapp</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item lines="none" *ngFor="let member of product">
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+        
+          <ion-col size="2" >
+          <ion-thumbnail>
+            <ion-img src="{{member.img}}"></ion-img>
+          </ion-thumbnail>
+        </ion-col>
+
+        <ion-col size="5">
+          <ion-label>{{ member?.name }}</ion-label>
+        </ion-col>
+
+        <ion-col size="3" >
+          <ion-label>{{ member.price }}</ion-label>
+        </ion-col>
+
+        <ion-checkbox [(ngModel)]="member.isChecked"></ion-checkbox>
+    
+        </ion-row> 
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" shape="round"  (click)="buy()">Buy</ion-button>
+  
+</ion-content>
